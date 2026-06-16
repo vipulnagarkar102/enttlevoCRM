@@ -1,0 +1,433 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────
+   LIGHT MODE CSS VARIABLES (default)
+───────────────────────────────────────────── */
+:root {
+  --color-primary-fixed-dim: 255 183 135;
+  --color-surface-container-high: 237 230 241;
+  --color-tertiary: 0 100 149;
+  --color-surface: 254 247 255;
+  --color-surface-container-highest: 231 224 236;
+  --color-on-primary-container: 94 43 0;
+  --color-on-tertiary: 255 255 255;
+  --color-inverse-surface: 50 47 56;
+  --color-secondary: 97 92 102;
+  --color-on-secondary: 255 255 255;
+  --color-on-primary: 255 255 255;
+  --color-outline-variant: 223 193 175;
+  --color-on-background: 29 26 34;
+  --color-on-secondary-fixed: 29 26 34;
+  --color-on-error-container: 147 0 10;
+  --color-surface-container: 243 235 247;
+  --color-outline: 139 114 99;
+  --color-on-tertiary-fixed: 0 30 48;
+  --color-primary: 150 73 0;
+  --color-on-surface: 29 26 34;
+  --color-surface-container-lowest: 255 255 255;
+  --color-secondary-fixed-dim: 203 196 207;
+  --color-tertiary-fixed-dim: 144 205 255;
+  --color-error-container: 255 218 214;
+  --color-on-primary-fixed: 49 19 0;
+  --color-secondary-container: 231 224 236;
+  --color-inverse-on-surface: 246 238 250;
+  --color-tertiary-container: 0 172 253;
+  --color-on-error: 255 255 255;
+  --color-inverse-primary: 255 183 135;
+  --color-surface-variant: 231 224 236;
+  --color-primary-fixed: 255 220 199;
+  --color-secondary-fixed: 231 224 236;
+  --color-surface-bright: 254 247 255;
+  --color-on-secondary-fixed-variant: 73 69 78;
+  --color-error: 186 26 26;
+  --color-tertiary-fixed: 203 230 255;
+  --color-background: 254 247 255;
+  --color-surface-tint: 150 73 0;
+  --color-on-primary-fixed-variant: 114 54 0;
+  --color-on-secondary-container: 103 98 108;
+  --color-surface-dim: 223 215 227;
+  --color-on-tertiary-fixed-variant: 0 75 114;
+  --color-on-tertiary-container: 0 61 93;
+  --color-on-surface-variant: 87 66 53;
+  --color-surface-container-low: 249 241 253;
+  --color-primary-container: 255 128 0;
+}
+
+/* ─────────────────────────────────────────────
+   DARK MODE CSS VARIABLES
+───────────────────────────────────────────── */
+.dark {
+  --color-surface: 18 18 18;
+  --color-background: 18 18 18;
+  --color-surface-container: 30 30 30;
+  --color-surface-container-low: 24 24 24;
+  --color-surface-container-high: 44 44 44;
+  --color-surface-container-highest: 55 55 55;
+  --color-surface-container-lowest: 10 10 10;
+  --color-surface-bright: 44 44 44;
+  --color-surface-dim: 8 8 8;
+  --color-surface-variant: 40 40 40;
+  --color-on-surface: 227 227 227;
+  --color-on-surface-variant: 196 196 196;
+  --color-on-background: 227 227 227;
+  --color-outline: 107 107 107;
+  --color-outline-variant: 60 60 60;
+  --color-inverse-surface: 254 247 255;
+  --color-inverse-on-surface: 50 47 56;
+  --color-surface-tint: 255 183 135;
+
+  /* Keep brand / accent colors unchanged */
+  --color-primary: 150 73 0;
+  --color-primary-container: 255 128 0;
+  --color-primary-fixed: 255 220 199;
+  --color-primary-fixed-dim: 255 183 135;
+  --color-on-primary: 255 255 255;
+  --color-on-primary-container: 94 43 0;
+  --color-on-primary-fixed: 49 19 0;
+  --color-on-primary-fixed-variant: 114 54 0;
+  --color-inverse-primary: 255 183 135;
+
+  --color-secondary: 150 145 156;
+  --color-secondary-container: 55 50 62;
+  --color-secondary-fixed: 80 75 87;
+  --color-secondary-fixed-dim: 120 115 128;
+  --color-on-secondary: 255 255 255;
+  --color-on-secondary-container: 200 195 207;
+  --color-on-secondary-fixed: 220 215 228;
+  --color-on-secondary-fixed-variant: 180 175 188;
+
+  --color-tertiary: 90 175 220;
+  --color-tertiary-container: 0 80 120;
+  --color-tertiary-fixed: 40 100 150;
+  --color-tertiary-fixed-dim: 70 140 190;
+  --color-on-tertiary: 255 255 255;
+  --color-on-tertiary-container: 180 225 255;
+  --color-on-tertiary-fixed: 200 235 255;
+  --color-on-tertiary-fixed-variant: 140 200 240;
+
+  --color-error: 207 102 121;
+  --color-error-container: 100 30 40;
+  --color-on-error: 255 255 255;
+  --color-on-error-container: 240 180 185;
+}
+
+/* ─────────────────────────────────────────────
+   BASE STYLES
+───────────────────────────────────────────── */
+@layer base {
+  body {
+    font-family: 'Lexend', sans-serif;
+    zoom: 0.9;
+    background-color: rgb(var(--color-background));
+    color: rgb(var(--color-on-surface));
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   ICON STYLES
+───────────────────────────────────────────── */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+  font-size: 20px;
+}
+
+/* ─────────────────────────────────────────────
+   SIDEBAR STYLES
+───────────────────────────────────────────── */
+.sidebar-item-active {
+  color: rgb(var(--color-primary-container));
+  background: rgba(var(--color-primary-container), 0.05);
+}
+
+.sidebar-hover:hover {
+  background: rgba(var(--color-primary-container), 0.05);
+  border-radius: 2px;
+}
+
+.main-content {
+  margin-left: var(--sidebar-width, 64px);
+  transition: margin-left 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --sidebar-width: 0px !important;
+  }
+
+  aside.sidebar {
+    transform: translateX(-100%);
+    width: 280px !important;
+  }
+
+  aside.sidebar.expanded {
+    transform: translateX(0);
+    box-shadow: 20px 0 50px rgba(0, 0, 0, 0.4);
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  header.topbar {
+    left: 0 !important;
+    width: 100% !important;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ─────────────────────────────────────────────
+   DROPDOWN & FLYOUT STYLES
+───────────────────────────────────────────── */
+.dropdown-shadow {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.flyout-menu {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  width: 280px;
+  background: #1A171F;
+  border-radius: 0 4px 4px 0;
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+  z-index: 50;
+  padding: 1rem 0;
+}
+
+.sidebar-item-container:focus-within .flyout-menu {
+  display: block;
+}
+
+.flyout-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.flyout-item:hover {
+  background: rgba(var(--color-primary-container), 0.05);
+  color: rgb(var(--color-primary-container));
+}
+
+.flyout-header {
+  padding: 0.5rem 1.5rem 1rem;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.flyout-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0.75rem 1.5rem;
+}
+
+/* ─────────────────────────────────────────────
+   DARK MODE — TABLE OVERRIDES
+   (bg-white overrides inside tables)
+───────────────────────────────────────────── */
+.dark .table-surface {
+  background-color: rgb(var(--color-surface-container-low));
+}
+
+.dark .table-header-surface {
+  background-color: rgb(var(--color-surface-container));
+}
+
+.dark .table-sticky-col {
+  background-color: rgb(var(--color-surface-container-low));
+}
+
+.dark .table-sticky-col-hover {
+  background-color: rgb(var(--color-surface-container-high));
+}
+
+/* ─────────────────────────────────────────────
+   DARK MODE — INPUT & BUTTON OVERRIDES
+───────────────────────────────────────────── */
+.dark input {
+  background-color: rgb(var(--color-surface-container));
+  color: rgb(var(--color-on-surface));
+  border-color: rgb(var(--color-outline-variant));
+}
+
+.dark input::placeholder {
+  color: rgb(var(--color-on-surface-variant) / 0.4);
+}
+
+/* ─────────────────────────────────────────────
+   OVERLAY / MODAL DARK STYLES
+───────────────────────────────────────────── */
+.dark .overlay-surface {
+  background-color: rgb(var(--color-surface-container));
+  border-color: rgb(var(--color-outline-variant) / 0.3);
+}
+
+/* ─────────────────────────────────────────────
+   PROFILE DROPDOWN DARK
+───────────────────────────────────────────── */
+.dark .profile-dropdown {
+  background-color: rgb(var(--color-surface-container-high));
+  border-color: rgb(var(--color-outline-variant) / 0.3);
+}
+
+/* ─────────────────────────────────────────────
+   SCROLLBAR STYLES
+───────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ─────────────────────────────────────────────
+   DARK MODE THEME TOGGLE SWITCH
+───────────────────────────────────────────── */
+.theme-toggle-track {
+  width: 36px;
+  height: 20px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  position: relative;
+  transition: background 0.3s;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.theme-toggle-track.active {
+  background: rgb(var(--color-primary-container));
+}
+
+.theme-toggle-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.theme-toggle-track.active .theme-toggle-thumb {
+  transform: translateX(16px);
+}
+
+/* ─────────────────────────────────────────────
+   CUSTOM PILL THEME TOGGLE
+───────────────────────────────────────────── */
+.theme-pill-container {
+  width: 56px;
+  height: 28px;
+  padding: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.dark .theme-pill-container {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.theme-pill-icon {
+  font-size: 14px !important;
+  color: rgba(255, 255, 255, 0.4);
+  z-index: 1;
+  transition: all 0.3s;
+  pointer-events: none;
+}
+
+.theme-pill-container.active .moon-icon {
+  color: white;
+}
+
+.theme-pill-container:not(.active) .sun-icon {
+  color: white;
+}
+
+.theme-pill-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Slide it to the right for light mode (not active) */
+/* Actually, depends on how we define "active". Let's say isDark = active. */
+.theme-pill-container:not(.active) .theme-pill-knob {
+  transform: translateX(28px);
+}
+
+.theme-pill-container.active .theme-pill-knob {
+  background: rgb(var(--color-primary-container));
+  box-shadow: 0 0 15px rgba(var(--color-primary-container), 0.4);
+  transform: translateX(0px);
+}
+
+/* ─────────────────────────────────────────────
+   CUSTOM LOADER ANIMATIONS
+───────────────────────────────────────────── */
+@keyframes float-pulse {
+  0% {
+    transform: translateY(0);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-15px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.2;
+  }
+}
+
+.animate-float-pulse {
+  animation: float-pulse 2s ease-in-out infinite;
+}
