@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from '../../components/Sidebar';
 import Topbar from '../../components/Topbar';
-import { useTheme } from '../../context/ThemeContext';
 import enttlevoIcon from '../../assets/enttlevologo1.png';
 import TodayNotifications from '../../components/Notifications/TodayNotifications';
 import UpcomingNotifications from '../../components/Notifications/UpcomingNotifications';
 import type { Notification } from '../../components/Notifications/types';
 
 const NotificationMain: React.FC = () => {
-  const { isDark } = useTheme();
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [notifications, setNotifications] = useState<Notification[]>([

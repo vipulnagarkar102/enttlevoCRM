@@ -78,7 +78,7 @@ interface AccountDetailsViewProps {
   onBack: () => void;
 }
 
-const AccountDetailsView: React.FC<AccountDetailsViewProps> = ({ accountId, accountName = 'Reliance', industry, onBack }) => {
+const AccountDetailsView: React.FC<AccountDetailsViewProps> = ({ accountName = 'Reliance', industry, onBack }) => {
   const { isDark } = useTheme();
   const [activeTab, setActiveTab] = useState('Sentiment');
   const [isEditing, setIsEditing] = useState(false);

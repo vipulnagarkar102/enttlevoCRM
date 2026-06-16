@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from '../../components/Sidebar';
 import Topbar from '../../components/Topbar';
-import { useTheme } from '../../context/ThemeContext';
 import enttlevoIcon from '../../assets/enttlevologo1.png';
 
 // Import subpages (to be created)
@@ -12,7 +11,6 @@ import DataRules from './DataRules';
 import IntegrationLibrary from './IntegrationLibrary';
 
 const SettingsMain: React.FC = () => {
-  const { isDark } = useTheme();
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
 

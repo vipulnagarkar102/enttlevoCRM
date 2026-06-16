@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from '../../components/Sidebar';
 import Topbar from '../../components/Topbar';
-import { useTheme } from '../../context/ThemeContext';
 import ComposeEmailOverlay from '../../components/AM_dashboard/ComposeEmailOverlay';
 
 // Modular Components
@@ -14,7 +13,6 @@ import SummarizeOverlay from '../../components/Email/SummarizeOverlay';
 import type { Email } from '../../components/Email/types';
 
 const EmailMain: React.FC = () => {
-  const { isDark } = useTheme();
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFolder, setActiveFolder] = useState('Inbox');
   const [isComposeOpen, setIsComposeOpen] = useState(false);

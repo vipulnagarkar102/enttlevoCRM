@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 interface CreateUserOverlayProps {
   isOpen: boolean;
@@ -7,7 +7,37 @@ interface CreateUserOverlayProps {
 }
 
 const CreateUserOverlay: React.FC<CreateUserOverlayProps> = ({ isOpen, onClose, onSave }) => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [contact, setContact] = useState('');
+  const [role, setRole] = useState('');
+
   if (!isOpen) return null;
+
+  const handleSubmit = () => {
+    if (!firstName || !lastName || !username || !email || !contact || !role) {
+      alert('Please fill in all required fields');
+      return;
+    }
+    
+    onSave({
+      name: `${firstName} ${lastName}`,
+      username: username.startsWith('@') ? username : `@${username}`,
+      email,
+      contact,
+      role
+    });
+
+    // Reset fields
+    setFirstName('');
+    setLastName('');
+    setUsername('');
+    setEmail('');
+    setContact('');
+    setRole('');
+  };
 
   const inputClass = "w-full px-3 py-2.5 border border-outline/15 bg-surface-container rounded-sm text-[0.85rem] text-on-surface focus:outline-none focus:border-primary-container/50 focus:ring-1 focus:ring-primary-container/20 placeholder:text-on-surface-variant/30 transition-colors";
 
@@ -34,7 +64,13 @@ const CreateUserOverlay: React.FC<CreateUserOverlayProps> = ({ isOpen, onClose, 
                 <span className="material-symbols-outlined !text-[18px] text-on-surface-variant/70">badge</span>
                 First Name <span className="text-error">*</span>
               </label>
-              <input type="text" placeholder="Enter first name" className={inputClass} />
+              <input 
+                type="text" 
+                placeholder="Enter first name" 
+                className={inputClass}
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+              />
             </div>
             
             <div className="space-y-1.5 flex flex-col">
@@ -42,7 +78,13 @@ const CreateUserOverlay: React.FC<CreateUserOverlayProps> = ({ isOpen, onClose, 
                 <span className="material-symbols-outlined !text-[18px] text-on-surface-variant/70">badge</span>
                 Last Name <span className="text-error">*</span>
               </label>
-              <input type="text" placeholder="Enter last name" className={inputClass} />
+              <input 
+                type="text" 
+                placeholder="Enter last name" 
+                className={inputClass}
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
             </div>
 
             <div className="space-y-1.5 flex flex-col">
@@ -50,7 +92,13 @@ const CreateUserOverlay: React.FC<CreateUserOverlayProps> = ({ isOpen, onClose, 
                 <span className="material-symbols-outlined !text-[18px] text-on-surface-variant/70">alternate_email</span>
                 Username <span className="text-error">*</span>
               </label>
-              <input type="text" placeholder="@username" className={inputClass} />
+              <input 
+                type="text" 
+                placeholder="@username" 
+                className={inputClass}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
             </div>
 
             <div className="space-y-1.5 flex flex-col">
@@ -58,7 +106,13 @@ const CreateUserOverlay: React.FC<CreateUserOverlayProps> = ({ isOpen, onClose, 
                 <span className="material-symbols-outlined !text-[18px] text-on-surface-variant/70">mail</span>
                 Email Address <span className="text-error">*</span>
               </label>
-              <input type="email" placeholder="Enter email address" className={inputClass} />
+              <input 
+                type="email" 
+                placeholder="Enter email address" 
+                className={inputClass}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
 
             <div className="space-y-1.5 flex flex-col">
@@ -66,7 +120,13 @@ const CreateUserOverlay: React.FC<CreateUserOverlayProps> = ({ isOpen, onClose, 
                 <span className="material-symbols-outlined !text-[18px] text-on-surface-variant/70">call</span>
                 Contact Number <span className="text-error">*</span>
               </label>
-              <input type="text" placeholder="+91 00000 00000" className={inputClass} />
+              <input 
+                type="text" 
+                placeholder="+91 00000 00000" 
+                className={inputClass}
+                value={contact}
+                onChange={(e) => setContact(e.target.value)}
+              />
             </div>
 
             <div className="space-y-1.5 flex flex-col">
@@ -75,7 +135,11 @@ const CreateUserOverlay: React.FC<CreateUserOverlayProps> = ({ isOpen, onClose, 
                 User Role <span className="text-error">*</span>
               </label>
               <div className="relative">
-                <select defaultValue="" className="w-full px-3 py-2.5 border border-outline/15 bg-surface-container rounded-sm text-[0.85rem] text-on-surface-variant/70 focus:outline-none focus:border-primary-container/50 appearance-none transition-colors">
+                <select 
+                  value={role} 
+                  onChange={(e) => setRole(e.target.value)}
+                  className="w-full px-3 py-2.5 border border-outline/15 bg-surface-container rounded-sm text-[0.85rem] text-on-surface focus:outline-none focus:border-primary-container/50 appearance-none transition-colors"
+                >
                   <option value="" disabled>Select Role</option>
                   <option value="Super Admin">Super Admin</option>
                   <option value="Admin">Admin</option>
@@ -92,7 +156,7 @@ const CreateUserOverlay: React.FC<CreateUserOverlayProps> = ({ isOpen, onClose, 
         {/* Footer */}
         <div className="p-6 border-t border-outline/10 flex justify-end gap-3 bg-surface-container-low shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
           <button onClick={onClose} className="min-w-[100px] px-4 py-1.5 border border-outline/10 rounded-sm text-[0.75rem] font-bold text-on-surface-variant hover:bg-surface-container-high transition-colors">Cancel</button>
-          <button className="min-w-[120px] px-4 py-1.5 bg-primary-container text-white rounded-sm text-[0.75rem] font-bold hover:bg-primary-container/90 shadow-sm active:scale-95 flex items-center justify-center gap-2">
+          <button onClick={handleSubmit} className="min-w-[120px] px-4 py-1.5 bg-primary-container text-white rounded-sm text-[0.75rem] font-bold hover:bg-primary-container/90 shadow-sm active:scale-95 flex items-center justify-center gap-2">
             Create User
           </button>
         </div>

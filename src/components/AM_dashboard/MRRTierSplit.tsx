@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTheme } from '../../context/ThemeContext';
 
 interface TierItem {
   label: string;
@@ -11,7 +10,6 @@ interface TierItem {
 }
 
 const MRRTierSplit: React.FC = () => {
-  const { isDark } = useTheme();
 
   const tiers: TierItem[] = [
     { label: 'Rabbit', value: 0.06, percentage: '0.06%', icon: 'eco', color: '#FDBA74', count: '12 Accounts' },

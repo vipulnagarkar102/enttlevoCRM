@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useTheme } from '../../context/ThemeContext';
 
 interface ComposeEmailOverlayProps {
   isOpen: boolean;
@@ -14,7 +13,6 @@ const ComposeEmailOverlay: React.FC<ComposeEmailOverlayProps> = ({
   initialSubject = '',
   initialMessage = ''
 }) => {
-  const { isDark } = useTheme();
   const [subject, setSubject] = useState(initialSubject);
   const [message, setMessage] = useState(initialMessage);
   const [toastMessage, setToastMessage] = useState<string | null>(null);

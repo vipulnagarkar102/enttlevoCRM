@@ -100,8 +100,6 @@ const UserRoleManagement: React.FC = () => {
 
   const [roles, setRoles] = useState(rolesData);
 
-  const headerBgClass = "bg-[#1A171F]";
-
   return (
     <div className="flex-1 flex flex-col h-full bg-[#FCFAFE] animate-in fade-in duration-300 overflow-hidden">
       {/* Header - Consistent with Profile */}

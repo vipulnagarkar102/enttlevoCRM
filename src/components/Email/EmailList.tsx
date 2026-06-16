@@ -24,7 +24,6 @@ interface EmailListProps {
 
 const EmailList: React.FC<EmailListProps> = ({
   isLoading,
-  activeFolder,
   displayedEmails,
   selectedEmails,
   handleSelectAll,

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './Module/Login/Login';
 import SalesDashboard from './Module/sales_dashboard';
 import SalesAllLeads from './Module/sales_all_leads';

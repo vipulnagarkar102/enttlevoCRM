@@ -74,7 +74,6 @@ interface KanbanStageProps {
 }
 
 const KanbanStage: React.FC<KanbanStageProps> = ({ title, leads, bgColorClass, headerColorClass, onDragOver, onDrop, onDragStart, onSelectLead }) => {
-  const { isDark } = useTheme();
   const totalARR = leads.reduce((sum, lead) => {
     const val = parseInt(lead.proposedARR?.replace(/[^0-9]/g, '') || '0');
     return sum + val;

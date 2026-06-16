@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useTheme } from '../../context/ThemeContext';
 import type { Email } from './types';
 import enttlevoIcon from '../../assets/enttlevologo1.png';
 
@@ -14,7 +13,6 @@ const SummarizeOverlay: React.FC<SummarizeOverlayProps> = ({
   onClose,
   emailContext
 }) => {
-  const { isDark } = useTheme();
   const [workflow, setWorkflow] = useState('Generate Email Summary');
   const [isSummarizing, setIsSummarizing] = useState(false);
   const [summaryResult, setSummaryResult] = useState<string | null>(null);
@@ -36,7 +34,6 @@ const SummarizeOverlay: React.FC<SummarizeOverlayProps> = ({
     }, 1500);
   };
 
-  const inputClass = "w-full px-3 py-2 border border-outline/15 bg-surface-container rounded-sm text-[0.85rem] text-on-surface focus:outline-none focus:border-primary-container/50 focus:ring-1 focus:ring-primary-container/20 transition-colors";
 
   return (
     <>

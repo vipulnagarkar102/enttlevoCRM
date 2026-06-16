@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useTheme } from '../../context/ThemeContext';
 import type { Email } from './types';
 
 interface CreateTicketOverlayProps {
@@ -13,7 +12,6 @@ const CreateTicketOverlay: React.FC<CreateTicketOverlayProps> = ({
   onClose,
   emailContext
 }) => {
-  const { isDark } = useTheme();
   const [title, setTitle] = useState('');
   const [priority, setPriority] = useState('');
   const [description, setDescription] = useState('');
